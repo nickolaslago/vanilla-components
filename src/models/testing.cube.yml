@@ -1,0 +1,45 @@
+cubes:
+- name: testing_venue_overall
+  sql_table: smartify-cc94e.report_venue.temp_venue_overall_table
+
+  dimensions:
+    - name: date
+      type: time
+      sql: timestamp(partition_date)
+    - name: event_name
+      type: string
+      sql: event_name
+    - name: country
+      type: string
+      sql: geo_country
+    - name: city
+      type: string
+      sql: geo_city
+    - name: stream
+      type: string
+      sql: stream_id
+    - name: venue_id
+      type: string
+      sql: venue_sid
+    - name: organisation_id
+      type: string
+      sql: organisation_sid
+    
+
+  measures:
+    - name: total_events
+      type: count
+      title: Total Events
+
+    - name: users
+      sql: user_pseudo_id
+      type: count_distinct
+      title: Total Users
+
+    - name: onsite_users
+      type: count_distinct
+      sql: case when venue_sid = nearby_venue_id then user_pseudo_id else null end
+
+    - name: registered_users
+      type: count_distinct
+      sql: user_id

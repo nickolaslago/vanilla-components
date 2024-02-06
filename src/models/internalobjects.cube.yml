@@ -1,0 +1,43 @@
+cubes:
+- name: lookup_objects
+  sql_table: smartify-cc94e.smartify_lookup_tables.object_lookup
+
+  dimensions:
+    - name: art_sid
+      type: string
+      sql: art_sid
+      title: "art_sid"
+    - name: art_default_name
+      type: string
+      sql: art_default_name
+      title: "art_default_name"
+    - name: artist_sid
+      type: string
+      sql: artist_sid
+      title: "artist_sid"
+    - name: venue_sid
+      type: string
+      sql: venue_sid
+      title: "venue_sid"
+    - name: art_status
+      type: string
+      sql: art_status
+      title: "art_status"
+    - name: art_category
+      type: string
+      sql: art_category
+      title: "art_category"
+    - name: organization_sid
+      type: string
+      sql: organization_sid
+      title: "art_default_name"
+    - name: art_image_url
+      type: string
+      sql: art_image_url
+      title: "art_image_url"
+
+
+  measures:
+    - name: total_events
+      type: count
+      title: 'Total-Events'
